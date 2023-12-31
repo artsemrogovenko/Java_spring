@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f500c446-31f4-48ab-8abb-cad3fff74813" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/geekbrains/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/geekbrains/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/geekbrains/App.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/geekbrains/Person.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/geekbrains/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/geekbrains/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/geekbrains/Domain/App.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -20,7 +19,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/geekbrains/Person.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="756">
+            <state relative-caret-position="735">
               <caret line="40" column="29" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -29,16 +28,19 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ru/geekbrains/App.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ru/geekbrains/Domain/App.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="126">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
+              <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/readme.md">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
@@ -64,8 +66,9 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/ru/geekbrains/Person.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/geekbrains/App.java" />
         <option value="$PROJECT_DIR$/readme.md" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/geekbrains/App.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/geekbrains/Domain/App.java" />
       </list>
     </option>
   </component>
@@ -93,10 +96,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="77" />
-    <option name="y" value="30" />
-    <option name="width" value="1612" />
-    <option name="height" value="876" />
+    <option name="x" value="84" />
+    <option name="y" value="100" />
+    <option name="width" value="1358" />
+    <option name="height" value="852" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -104,7 +107,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -134,6 +137,14 @@
               <item name="hw1" type="b2602c69:ProjectViewProjectNode" />
               <item name="hw1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="geekbrains" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hw1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hw1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -147,12 +158,13 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1703930905526" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1704023935984" />
     <property name="editor.config.ad.shown" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -168,11 +180,11 @@
   </component>
   <component name="RunManager">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ru.geekbrains.App" />
+      <option name="MAIN_CLASS_NAME" value="ru.geekbrains.Domain.App" />
       <module name="hw1" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ru.geekbrains.*" />
+          <option name="PATTERN" value="ru.geekbrains.Domain.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -203,10 +215,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="77" y="30" width="1612" height="876" extended-state="0" />
-    <editor active="true" />
+    <frame x="84" y="100" width="1358" height="852" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25966495" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31432974" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -217,13 +228,13 @@
       <window_info id="Learn" order="8" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3293011" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3402778" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39919356" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="DB Execution Console" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3293011" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3293011" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="SQL" order="11" />
@@ -283,7 +294,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/geekbrains/Person.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
+        <state relative-caret-position="735">
           <caret line="40" column="29" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -291,17 +302,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/geekbrains/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/readme.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="5" column="102" selection-start-line="5" selection-start-column="102" selection-end-line="5" selection-end-column="102" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/geekbrains/Domain/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
