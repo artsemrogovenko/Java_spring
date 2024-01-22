@@ -1,0 +1,102 @@
+<!-- HTML for static distribution bundle build -->
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Task notes</title>
+    <script th:src="@{/js/scripts.js}" src="/js/scripts.js"></script>
+    <link th:href="@{/css/styles.css}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<!--окно редактирования задачи-->
+<div id="popupForm" class="popup" style="display: none;">
+    <form th:action="@{/task-edit}" method="post" id="myForm">
+        <!--поля для изменения -->
+        <label for="task_name">Имя:</label>
+        <input id="task_name" type="text" name="name" placeholder="Enter task name"/><br/>
+
+        <label for="task_desc">Описание:</label>
+        <input id="task_desc" type="text" name="description" placeholder="Enter task description"/><br/>
+        <input type="hidden" id="task_Id" name="id"/><br>
+
+        <!--выпадающий список статусов-->
+        <label for="status_task">Статус:</label>
+        <select id="status_task" name="status">
+            <option value="TO_DO">Сделать</option>
+            <option value="IN_PROGRESS">В работе</option>
+        </select>
+
+        <input type="submit" value="Save">
+    </form>
+    <button onclick="document.getElementById('popupForm').style.display = 'none'">Close</button>
+</div>
+
+<div>
+    <!--Верхняя таблица-->
+    <table class="tasklist-table">
+
+        <thead>
+        <!--        если список пуст колонка не показывается-->
+        <tr th:if="${not #lists.isEmpty(tasks)}">
+            <th width="auto">ID</th>
+            <th width="140px">Name</th>
+            <th width="140px">Description</th>
+            <th width="120px">Status</th>
+            <th width="140px">Completion Time</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr class="list-tasks" th:each="t: ${tasks}">
+
+            <td th:text="${t.getId}"></td>
+            <td th:text="${t.getName}"></td>
+            <td th:text="${t.getDescription}"></td>
+            <td th:text="${t.getStatus}"></td>
+            <td th:text="${t.getCompletionTime}"></td>
+
+            <td>
+                <button th:attr="data-taskId=${t.getId},
+                                     data-name=${t.getName},
+                                     data-descr=${t.getDescription},
+                                     data-status=${t.getStatus}" onclick="togglePopup(this)">Edit</button>
+            </td>
+            <td>
+                <form th:action="@{/task-complete/{id}(id=${t.getId})}" method="post">
+                    <button type="submit">Complete Task</button>
+                </form>
+            </td>
+            <td>
+                <form th:action="@{/task-delete/{id}(id=${t.getId})}" method="post">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+
+        </tr>
+        <tbody>
+
+    </table>
+</div>
+
+<!--нижняя таблица добавления -->
+<table class="add-newtask">
+    <thead>
+    <tr>
+        <td>Add task</td>
+    </tr>
+    </thead>
+    <tr>
+        <td>
+            <form action="/task-add" method="post">
+                <input type="text" name="name" placeholder="Название">
+                <input type="text" name="description" placeholder="Описание">
+                <button type="submit">Add new Task</button>
+            </form>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
