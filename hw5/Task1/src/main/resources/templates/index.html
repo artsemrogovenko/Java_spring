@@ -1,0 +1,136 @@
+<!-- HTML for static distribution bundle build -->
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Task notes</title>
+    <script th:src="@{../js/scripts.js}" src="/js/scripts.js"></script>
+    <link th:href="@{../css/styles.css}" rel="stylesheet" type="text/css">
+    <link rel="icon" href="favicon.ico" type="favicon.ico">
+</head>
+
+<body>
+
+<!--окно редактирования задачи-->
+<div id="popupForm" class="popup" style="display: none;">
+<!--    <form  th:action="@{/task-edit/{id}(id=${task_Id})}"  method="put" id="task_Id">-->
+<!--        &lt;!&ndash;поля для изменения &ndash;&gt;-->
+<!--&lt;!&ndash;        <input type="hidden" id="task_Id" name="id"/><br>&ndash;&gt;-->
+<!--        <label for="task_desc">Описание:</label>-->
+<!--        <input id="task_desc" type="text" name="description" placeholder="Enter task description"/><br/>-->
+<!--        &lt;!&ndash;выпадающий список статусов&ndash;&gt;-->
+<!--        <label for="status_task">Статус:</label>-->
+<!--        <select id="status_task" name="status">-->
+<!--            <option value="TO_DO">Сделать</option>-->
+<!--            <option value="IN_PROGRESS">В работе</option>-->
+<!--        </select>-->
+
+<!--        <input type="submit" value="Save">-->
+<!--    </form>-->
+    <form th:object="${task}"  th:action="@{/task-edit/{id}(id=${task_Id})}" method="post" id="myForm">
+        <!--поля для изменения -->
+        <input type="hidden" id="task_Id" name="id"/><br>
+
+        <label for="task_desc">Описание:</label>
+        <input id="task_desc" type="text" th:field="*{description}" placeholder="Enter task description"/><br/>
+
+        <!--выпадающий список статусов-->
+        <label for="status_task">Статус:</label>
+        <select id="status_task" name="status" th:field="*{status}">
+            <option value="TO_DO">Сделать</option>
+            <option value="IN_PROGRESS">В работе</option>
+        </select>
+        <input type="submit" value="Save">
+    </form>
+
+       <button onclick="document.getElementById('popupForm').style.display = 'none'">Close</button>
+</div>
+
+<div>
+    <!--Верхняя таблица-->
+    <table class="tasklist-table">
+
+        <thead>
+        <!--        если список пуст колонка не показывается-->
+        <tr th:if="${not #lists.isEmpty(tasks)}">
+            <th width="auto">ID</th>
+            <th width="140px">Description</th>
+            <th width="120px">Status</th>
+            <th width="140px">Create Time</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr class="list-tasks" th:each="t: ${tasks}">
+
+            <td th:text="${t.id}"></td>
+            <td th:text="${t.description}"></td>
+            <td th:text="${t.status}"></td>
+            <td th:text="${t.created}"></td>
+
+            <td>
+                <button th:attr="data-taskId=${t.getId},
+                                 data-descr=${t.getDescription},
+                                 data-status=${t.getStatus}" onclick="togglePopup(this)">Edit</button>
+            </td>
+            <td>
+                <form th:action="@{/task-complete/{id}(id=${t.getId})}" method="post">
+                    <button type="submit">Complete Task</button>
+                </form>
+            </td>
+            <td>
+                <form th:action="@{/task-delete/{id}(id=${t.getId})}" method="post">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+
+        </tr>
+        <tbody>
+
+    </table>
+</div>
+
+<!--нижняя таблица добавления -->
+<table class="add-newtask">
+    <thead>
+    <tr>
+        <td>Add task</td>
+    </tr>
+    </thead>
+    <tr>
+        <td>
+            <form action="/task-add" method="post">
+                <input type="text" name="description" placeholder="Описание">
+                <button type="submit">Add new Task</button>
+            </form>
+        </td>
+    </tr>
+    <tr>
+
+<!--        <form th:action="@{'/status/{status}(status=${status_filter})}" method="get" th:object="${status_filter}">-->
+<!--            &lt;!&ndash;выпадающий список статусов&ndash;&gt;-->
+<!--            <label for="status_filter">Выбрать по статусу:</label>-->
+<!--            <select id="status_filter" name="status" th:field="*{name}">-->
+<!--                <option th:each="taskstatus : ${T(com.example.Task1.model.TaskStatus).values()}"-->
+<!--                        th:value="${taskstatus}" th:text="${#strings.capitalize(status.name())}">-->
+<!--                </option>-->
+<!--            </select>-->
+<!--            <input type="submit" value="Save">-->
+<!--        </form>-->
+
+        <form th:action="@{/filterstatus/{status}(status=${element})}" method="post">
+            <!--выпадающий список статусов-->
+            <label for="status_filter">Выбрать по статусу:</label>
+            <select id="status_filter" name="status">
+                <option th:each="element : ${T(com.example.Task1.model.TaskStatus).values()}"
+                        th:value="${element}" th:text="${#strings.capitalize(element.name())}">
+                </option>
+            </select>
+            <input type="submit" value="Save">
+        </form>
+
+
+</table>
+
+</body>
+</html>

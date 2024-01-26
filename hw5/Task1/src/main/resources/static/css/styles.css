@@ -1,0 +1,72 @@
+﻿.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ccc;
+    z-index: 1000;
+}
+
+
+.add-newtask {
+    margin-top:20px;
+    background: #dddddd;
+    text-align:center;
+}
+
+.tasklist-table tbody tr:hover {
+    background-color: #f0f0f0; /* Замените цветом по вашему выбору */
+}
+
+
+.tasklist-table thead th {
+	font-weight: bold;
+	text-align: left;
+	border: none;
+	padding: 5px 3px;
+	background: #91dcf7;
+	font-size: 14px;
+}
+/* закругление на левой ячейке*/
+.tasklist-table thead tr th:first-child {
+	border-radius: 8px 0 0 8px;
+}
+/* закругление на правой ячейке*/
+.tasklist-table thead tr th:last-child {
+	border-radius: 0 8px 8px 0;
+}
+.tasklist-table tbody td {
+	text-align: left;
+	border: none;
+	padding: 5px 3px;
+	font-size: 14px;
+	vertical-align: top;
+}
+/*
+.tasklist-table tbody tr:nth-child(even){
+	background: #a3f7ff30;
+}
+*/
+.tasklist-table tbody tr{
+	background: #a7e7ff69;
+}
+
+.tasklist-table tbody tr td:first-child {
+	border-radius: 8px 0 0 8px;
+}
+
+
+.tasklist-table tbody tr td:nth-last-child(2){
+	background: #9eff6454;
+}
+.tasklist-table tbody tr td:nth-last-child(3){
+	background: #e6ff6454;
+}
+
+.tasklist-table tbody tr td:last-child {
+	border-radius: 0 8px 8px 0;
+	background: #ff826454;
+}
