@@ -36,15 +36,4 @@ public class WebApi {
             model.addAttribute("characters", crts);
         return "app";
         }
-//    }
-//    @PostMapping("/updateCharacterApi/")
-//    public ResponseEntity<String> updateCharacterApi(@RequestBody String value) {
-//        try {
-//            updateCharacterApi.updateCharacterApi(value);
-//            return ResponseEntity.ok("Success");
-//        } catch (Exception e) {
-//            e.printStackTrace(); // Логирование ошибки в консоль
-//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error");
-//        }
-//    }
 }
