@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{../styles.css}"/>
+</head>
+<body>
+
+
+<div class="info">
+
+
+    <div>
+        <form class="backButton" th:action="@{/back}" method="get">
+            <button type="submit">Back to cards</button>
+        </form>
+    </div>
+
+
+</div>
+
+
+</div>
+
+
+<div class="container" style="background:gray">
+
+
+    <div class="cards-container">
+
+        <div class="character-card">
+
+            <!--            <a th:href="@{${character.url}}">-->
+            <img th:src="@{${character.image}}" alt="">
+
+            <ul>
+                <li>Id <span th:text="${character.id}"> </span></li>
+                <li th:text="${character.name}"></li>
+                <li class="status-text" th:class="${character.status eq 'Alive'} ? 'status-alive' :
+                                   (${character.status eq 'Dead'} ? 'status-dead' : 'status-text')">
+                    <span th:text="${character.status}"></span>
+                </li>
+
+                <li th:text="${character.species}"></li>
+                <li th:text="${character.type}"></li>
+                <li th:text="${character.gender}">
+                <li>
+                <li th:text="${character.created}"></li>
+            </ul>
+
+        </div>
+
+        <div style="width:300px;">
+
+            <ul>
+                <li><h4>Location: </h4></li>
+                <li th:text="${character.location.name}"></li>
+                <a th:href="${character.location.url}"></a>
+                <li th:text="${character.location.type}"></li>
+                <li th:text="${character.location.dimension}"></li>
+                <li th:each="res_url: ${character.location.residents}"></li>
+                <ul>
+                    <li th:text="${res_url}"></li>
+                </ul>
+            </ul>
+
+        </div>
+        <div style="height:446px;width:350px;overflow:auto;">
+            <h3>Episodes</h3>
+            <ul th:each="episode: ${character.episode}">
+                <li th:text="${episode}"></li>
+            </ul>
+        </div>
+
+        <div th:each="resident: ${character.location.residents}">
+            <h3>Residents</h3>
+            <div class="resident-card" th:if="${resident != null}">
+                <!--            <a th:href="@{${character.url}}">-->
+                <img th:src="@{${resident.image}}" alt="">
+
+                <ul>
+                    <li>Id <span th:text="${resident.id}"> </span></li>
+                    <li th:text="${resident.name}"></li>
+                    <li class="status-text" th:class="${resident.status eq 'Alive'} ? 'status-alive' :
+                                   (${resident.status eq 'Dead'} ? 'status-dead' : 'status-text')">
+                        <span th:text="${resident.status}"></span>
+                    </li>
+
+                    <li th:text="${resident.species}"></li>
+                    <li th:text="${resident.type}"></li>
+                    <li th:text="${resident.gender}">
+                    <li>
+                    <li th:text="${resident.created}"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -44,54 +44,37 @@
     <div class="cards-container" th:each="character: ${characters.results}">
 
         <div class="character-card">
-            <a th:href="@{${character.url}}">
+            <a th:href="@{'/result/' + ${character.id}}">
                 <img th:src="@{${character.image}}" alt="">
-
-                <ul>
-                    <li>Id <span th:text="${character.id}"> </span></li>
-                    <li th:text="${character.name}"></li>
-                    <li class="status-text" th:class="${character.status eq 'Alive'} ? 'status-alive' :
-                                   (${character.status eq 'Dead'} ? 'status-dead' : 'status-text')">
-                        <span th:text="${character.status}"></span>
-                    </li>
-
-                    <li th:text="${character.species}"></li>
-                    <li th:text="${character.type}"></li>
-                    <li th:text="${character.gender}">
-                    <li>
-                    <li th:text="${character.created}"></li>
-                </ul>
+                <h3 align="center" th:text="${character.name}"></h3>
             </a>
-
-        </div>
-
-    </div>
-
-
-
-
-
-    <div class="info">
-        <div class="box-info">
-
-            <div>
-                <form class="prevButton" th:action="@{/stepurl}"
-                      th:if="${characters.info.prev != null}" method="get">
-                    <input type="hidden" name="url" th:value="${characters.info.prev}"/>
-                    <button type="submit">Prev</button>
-                </form>
-            </div>
-            <div>
-                <form class="nextButton" th:action="@{/stepurl}"
-                      th:if="${characters.info.next != null}" method="get">
-                    <input type="hidden" name="url" th:value="${characters.info.next}"/>
-                    <button type="submit">Next</button>
-                </form>
-            </div>
         </div>
     </div>
+
+
+</div>
+<div class="info">
+    <div class="box-info">
+
+        <div>
+            <form class="prevButton" th:action="@{/stepurl}"
+                  th:if="${characters.info.prev != null}" method="get">
+                <input type="hidden" name="url" th:value="${characters.info.prev}"/>
+                <button type="submit">Prev</button>
+            </form>
+        </div>
+        <div>
+            <form class="nextButton" th:action="@{/stepurl}"
+                  th:if="${characters.info.next != null}" method="get">
+                <input type="hidden" name="url" th:value="${characters.info.next}"/>
+                <button type="submit">Next</button>
+            </form>
+        </div>
+    </div>
+</div>
 
 </div>
 
 </body>
 </html>
+
