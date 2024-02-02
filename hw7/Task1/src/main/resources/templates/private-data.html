@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Private Page</title>
+
+</head>
+<body>
+<h1>Welcome to Private Page</h1>
+<div sec:authorize="isAuthenticated()">
+
+    <form th:action="@{/public}" method="get">
+        <button type="submit">Public page</button>
+    </form>
+
+    <form th:action="@{/logout}" method="post">
+        <button type="submit">Logout</button>
+    </form>
+</div>
+
+
+</body>
+</html>
