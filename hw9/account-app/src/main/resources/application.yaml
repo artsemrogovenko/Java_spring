@@ -1,0 +1,28 @@
+server:
+  port: 3869
+
+spring:
+  application:
+    name: transfer
+
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: update
+
+  profiles:
+    active: eclient
+
+  config:
+    import: configserver:http://localhost:8888
+
+  datasource:
+    url: jdbc:h2:mem:accounts
+    driverClassName: org.h2.Driver
+
+    username: sa
+    password: sa
+
+  h2:
+    console:
+      enabled: true
