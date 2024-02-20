@@ -1,0 +1,6 @@
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml" />
+
+    <!-- Конфигурация для логирования загрузки конфигурации из Config Server -->
+    <logger name="org.springframework.cloud.config" level="DEBUG"/>
+</configuration>
