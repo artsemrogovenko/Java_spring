@@ -1,0 +1,23 @@
+spring:
+  cloud:
+    openfeign:
+      client:
+        config:
+          transfer:
+            url: http://localhost:8765/transfer
+          storage:
+            url: http://localhost:8765/storage
+
+api:
+  basic-uri:
+    storage: http://localhost:8765/storage/
+    transfer: http://localhost:8765/transfer/
+
+desk:
+  account:
+    id: 1
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka

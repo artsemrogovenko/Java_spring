@@ -1,0 +1,29 @@
+server:
+  port: 3868
+
+spring:
+  application:
+    name: storage
+
+  profiles:
+    active: eclient
+
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: update
+
+  config:
+    import: configserver:http://localhost:8888
+
+
+  datasource:
+    url: jdbc:h2:mem:storagetask
+    driverClassName: org.h2.Driver
+
+    username: sa
+    password: sa
+
+  h2:
+    console:
+      enabled: true
