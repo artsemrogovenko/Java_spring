@@ -73,6 +73,11 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>ru.spb.devclub</groupId>
+            <artifactId>delegating-spring-request-context</artifactId>
+            <version>1.0</version>
+        </dependency>
 
     </dependencies>
     <dependencyManagement>

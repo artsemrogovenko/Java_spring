@@ -89,10 +89,10 @@ public class TaskService {
     public void completedTask(Long id, Long userId) {
 
         Task work = getTaskById(id);
-        if (work.getOwner().equals(userId)) {
+        if (work.getOwner().equals(userId) && work.getStatus().equals(TaskStatus.IN_PROGRESS)) {
             work.setStatus(TaskStatus.DONE);
             taskRepository.save(work);
-            publisher.publishEvent(new TaskCompleteEvent(this,work));
+            publisher.publishEvent(new TaskCompleteEvent(this, work));
             System.out.println("Блок complete применился");
         } else
             System.out.println("Блок complete не применился");

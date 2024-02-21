@@ -1,4 +1,4 @@
-package com.example.webclient.serivices;
+package com.example.webclient.integration;
 
 import org.springframework.integration.annotation.MessagingGateway;
 import org.springframework.integration.file.FileHeaders;

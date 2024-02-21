@@ -1,6 +1,7 @@
-package com.example.webclient.serivices;
+package com.example.webclient.services;
 
 import com.example.webclient.aspect.LogMethod;
+import com.example.webclient.integration.FileWriter;
 import com.example.webclient.models.Task;
 import com.example.webclient.models.TaskStatus;
 import com.example.webclient.client.StorageApi;
@@ -13,14 +14,11 @@ import com.example.webclient.client.AccountApi;
 import com.example.webclient.models.Transaction;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.Metrics;
 
-/**
- * Сервис для осуществления покупки.
- */
+
 @Service
 public class WebService {
     /**
@@ -82,6 +80,8 @@ public class WebService {
     public void assign(Long taskId, Long userId, Task task) {
         ResponseEntity<?> response = productReserve(taskId, userId);
         if (response.getStatusCode().is2xxSuccessful()) {
+            Task taskToWrite= storageApi.getTask(taskId).getBody();
+            fileWriter.writeToFile("Task"+taskId+".txt",taskToWrite.toString());
             assignTask(storageApi.getTask(task.getId()).getBody(), userId);
         } else {
             rollbackProductReserve(taskId);
@@ -110,7 +110,7 @@ public class WebService {
     }
 
     /**
-     * Служебный метод отката произведенной оплаты.
+     * Служебный метод отката
      */
     @LogMethod
     public void rollbackTake(Task task, Long userId) throws HttpClientErrorException {
@@ -129,7 +129,6 @@ public class WebService {
 
     @LogMethod
     public void createNew(Task task) {
-        fileWriter.writeToFile("Task"+task.getId()+".txt",task.toString());
         storageApi.createTask(task);
     }
 

@@ -3,7 +3,7 @@ package com.example.webclient.contorllers;
 import com.example.webclient.aspect.LogMethod;
 import com.example.webclient.models.Task;
 import com.example.webclient.models.UserId;
-import com.example.webclient.serivices.WebService;
+import com.example.webclient.services.WebService;
 import feign.FeignException;
 import feign.RetryableException;
 import jakarta.servlet.http.HttpServletRequest;
